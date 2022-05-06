@@ -1,5 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+// using System.Collections;
+// using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -60,5 +61,11 @@ public class PlayerController : MonoBehaviour
             GameWonScreen.SetActive(true);
         }
 
+    }
+
+    public void RestartGame()
+    {
+        Debug.Log("Lvl Restarted");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
