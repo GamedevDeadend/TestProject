@@ -8,15 +8,16 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rigidbody2d;
     public float speed;
 
-    public bool IsWon = false;
+    public bool IsOver = false;
     public GameObject GameWonScreen;
+    public GameObject GameLostScreen;
     // public float accelaration;
 
 
     // Update is called once per frame
     void Update()
     {
-        if (IsWon == true)
+        if (IsOver == true)
         {
             return;
         }
@@ -57,8 +58,14 @@ public class PlayerController : MonoBehaviour
         if(other.tag == "Door")
         {
             Debug.Log("Lvl Complete");
-            IsWon = true;
+            IsOver = true;
             GameWonScreen.SetActive(true);
+        }
+
+        else if (other.tag == "Enemy")
+        {
+            IsOver = true;
+            GameLostScreen.SetActive(true);
         }
 
     }
